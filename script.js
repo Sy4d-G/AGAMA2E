@@ -1,6 +1,6 @@
-/* File: script.js (Final & Lengkap) */
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- Logika untuk Navigasi Mobile (Hamburger Menu) ---
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+
+    // --- Logika Smooth Scrolling ---
     const allNavLinks = document.querySelectorAll('nav a');
     allNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -45,7 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+
+    // --- Logika Animasi Mengetik ---
     const animationTrigger = document.querySelector('#materi');
+
     if(animationTrigger){
         const titleTargets = document.querySelectorAll('.preview-card h3');
         const paragraphTargets = document.querySelectorAll('.preview-card p');
@@ -101,7 +106,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, {
-            threshold: 0.4
+            /* PERUBAHAN UTAMA DI SINI: 
+            Nilai threshold diubah dari 0.4 menjadi 0.1.
+            Artinya, animasi akan berjalan saat 10% dari area materi terlihat di layar,
+            sehingga lebih mudah terpicu di layar HP yang kecil.
+            */
+            threshold: 0.1 
         });
 
         observer.observe(animationTrigger);
