@@ -1,0 +1,203 @@
+/* File: style.css */
+:root {
+    --primary-color: #2980b9; /* Biru Kuat */
+    --secondary-color: #3498db; /* Biru Ringan */
+    --background-start: #eaf2f8; /* Biru Pudar Sangat Ringan */
+    --background-end: #ffffff; /* Putih */
+    --text-color: #2c3e50; /* Abu-abu Kebiruan Gelap */
+    --card-bg: #ffffff;
+    --header-bg: rgba(255, 255, 255, 0.9);
+    --footer-bg: #2c3e50;
+    --footer-text: #ecf0f1;
+    --light-grey-bg: #f4f7f6;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-end);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- PERUBAHAN DI SINI --- */
+nav .logo {
+    display: flex; /* Membuat logo dan teks sejajar */
+    align-items: center; /* Menengahkan logo dan teks secara vertikal */
+    gap: 10px; /* Memberi jarak antara logo dan teks */
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Lora', serif;
+    text-decoration: none;
+}
+
+nav .logo svg {
+    width: 28px; /* Ukuran ikon bulan sabit */
+    height: 28px;
+}
+/* ------------------------- */
+
+nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
+nav a { 
+    text-decoration: none; 
+    color: var(--primary-color); 
+    font-weight: 600; 
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease; 
+}
+nav a:hover, nav a.active { 
+    color: var(--primary-color);
+    background-color: var(--light-grey-bg); 
+}
+
+main { padding-top: 100px; }
+
+.hero {
+    background: linear-gradient(to bottom, var(--background-start) 60%, var(--background-end) 100%);
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 0;
+}
+.hero-content {
+    padding: 40px;
+    max-width: 80%;
+}
+.hero-content h1 { 
+    font-family: 'Lora', serif; 
+    font-size: 3.2rem; 
+    color: var(--primary-color);
+}
+.hero-content p { 
+    font-size: 1.3rem; 
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.content-section { padding: 60px 10%; }
+.content-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.preview-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid #d6eaf8;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    box-shadow: 0 4px 25px rgba(41, 128, 185, 0.05);
+}
+.preview-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px 0 rgba(52, 152, 219, 0.4);
+}
+
+.card-icon {
+    margin-bottom: 20px;
+    background-color: var(--background-start);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+.card-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-color);
+}
+
+.preview-card h3 { 
+    font-family: 'Lora', serif;
+    font-size: 1.6rem; 
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.preview-card p { flex-grow: 1; min-height: 80px; font-size: 1rem; }
+
+.btn-lanjut {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 20px;
+    align-self: flex-start;
+    padding: 0;
+    background: none;
+}
+.btn-lanjut:hover {
+    color: var(--primary-color);
+}
+
+.typing-cursor::after { 
+    content: '|'; 
+    display: inline-block; 
+    animation: blink 0.7s infinite; 
+    font-weight: bold; 
+    color: var(--text-color); 
+    margin-left: 3px; 
+}
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+
+.detail-page { padding: 40px 15%; }
+.breadcrumb { margin-bottom: 20px; font-size: 0.9rem; color: #555; }
+.breadcrumb a { text-decoration: none; color: var(--secondary-color); }
+.detail-page h1 { font-family: 'Lora', serif; font-size: 2.8rem; color: var(--primary-color); margin-bottom: 5px; background-color: var(--light-grey-bg); padding: 10px 20px; border-radius: 8px; display: inline-block; }
+.detail-page .subtitle { font-size: 1.2rem; color: #666; margin-top: 0; margin-bottom: 40px; }
+.detail-content { background-color: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.detail-content h3 { font-family: 'Lora', serif; color: var(--primary-color); background-color: var(--light-grey-bg); font-size: 1.8rem; padding: 8px 15px; border-radius: 5px; display: inline-block; }
+.detail-content ul { padding-left: 20px; list-style-type: '✔  '; }
+.detail-content li { margin-bottom: 10px; }
+
+footer { background-color: var(--footer-bg); color: var(--footer-text); padding: 50px 10% 20px; }
+.footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+.footer-about h4, .footer-nav h4, .footer-contact h4 { font-family: 'Lora', serif; font-size: 1.5rem; margin-bottom: 20px; color: #fff; }
+.footer-about p, .footer-contact p { font-size: 0.95rem; line-height: 1.8; margin: 0 0 10px 0; }
+.footer-nav ul { list-style: none; padding: 0; }
+.footer-nav li { margin-bottom: 10px; }
+.footer-nav a { text-decoration: none; color: var(--footer-text); transition: background-color 0.3s; padding: 8px 15px; border-radius: 5px; }
+.footer-nav a:hover { color: var(--primary-color); background-color: var(--light-grey-bg); }
+.footer-contact .contact-box { background-color: var(--light-grey-bg); padding: 20px; border-radius: 8px; }
+.footer-contact .contact-box p { color: var(--text-color); font-size: 0.9rem; margin-bottom: 10px; }
+.footer-contact .contact-box p strong { color: var(--primary-color); }
+.footer-bottom { text-align: center; border-top: 1px solid var(--secondary-color); padding-top: 20px; font-size: 0.9rem; }
