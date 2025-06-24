@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     // --- Logika Smooth Scrolling ---
     const allNavLinks = document.querySelectorAll('nav a');
     allNavLinks.forEach(link => {
@@ -46,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
 
     // --- Logika Animasi Mengetik ---
     const animationTrigger = document.querySelector('#materi');
@@ -92,6 +90,16 @@ document.addEventListener('DOMContentLoaded', function() {
             type();
         };
 
+        const observerOptions = {
+            /* PERUBAHAN UTAMA DI SINI:
+            Opsi pemicu diubah agar lebih andal di semua perangkat.
+            rootMargin: '0px 0px -100px 0px' -> Artinya, anggap layar 100px lebih pendek. Animasi akan terpicu saat elemen berada 100px dari bawah layar.
+            threshold: 0 -> Artinya, animasi akan terpicu begitu 1 piksel pertama dari elemen masuk ke area pemicu.
+            */
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0
+        };
+
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -105,14 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            /* PERUBAHAN UTAMA DI SINI: 
-            Nilai threshold diubah dari 0.4 menjadi 0.1.
-            Artinya, animasi akan berjalan saat 10% dari area materi terlihat di layar,
-            sehingga lebih mudah terpicu di layar HP yang kecil.
-            */
-            threshold: 0.1 
-        });
+        }, observerOptions); // Menggunakan opsi yang sudah diperbaiki
 
         observer.observe(animationTrigger);
     }
