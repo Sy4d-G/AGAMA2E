@@ -1,10 +1,10 @@
-/* File: style.css (Lengkap dengan Navigasi Mobile yang Benar) */
+/* File: style.css (Final & Lengkap) */
 :root {
-    --primary-color: #2980b9;
-    --secondary-color: #3498db;
-    --background-start: #eaf2f8;
-    --background-end: #ffffff;
-    --text-color: #2c3e50;
+    --primary-color: #2980b9; /* Biru Kuat */
+    --secondary-color: #3498db; /* Biru Ringan */
+    --background-start: #eaf2f8; /* Biru Pudar Sangat Ringan */
+    --background-end: #ffffff; /* Putih */
+    --text-color: #2c3e50; /* Abu-abu Kebiruan Gelap */
     --card-bg: #ffffff;
     --header-bg: rgba(255, 255, 255, 0.9);
     --footer-bg: #2c3e50;
@@ -72,9 +72,8 @@ nav .logo svg {
     background-color: var(--light-grey-bg); 
 }
 
-/* Gaya untuk Tombol Hamburger */
 .burger {
-    display: none; /* Sembunyi di layar besar */
+    display: none;
     cursor: pointer;
 }
 .burger div {
@@ -85,12 +84,145 @@ nav .logo svg {
     transition: all 0.3s ease;
 }
 
-/* --- Media Query untuk Perangkat Mobile (Responsive) --- */
+main { padding-top: 100px; }
+
+.hero {
+    background: linear-gradient(to bottom, var(--background-start) 60%, var(--background-end) 100%);
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 0;
+}
+.hero-content {
+    padding: 40px;
+    max-width: 80%;
+}
+.hero-content h1 { 
+    font-family: 'Lora', serif; 
+    font-size: 3.2rem; 
+    color: var(--primary-color);
+}
+.hero-content p { 
+    font-size: 1.3rem; 
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.content-section { padding: 60px 10%; }
+.content-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.preview-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid #d6eaf8;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    box-shadow: 0 4px 25px rgba(41, 128, 185, 0.05);
+}
+.preview-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px 0 rgba(52, 152, 219, 0.4);
+}
+
+.card-icon {
+    margin-bottom: 20px;
+    background-color: var(--background-start);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+.card-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-color);
+}
+
+.preview-card h3 { 
+    font-family: 'Lora', serif;
+    font-size: 1.6rem; 
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.preview-card p { flex-grow: 1; min-height: 80px; font-size: 1rem; }
+
+.btn-lanjut {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 20px;
+    align-self: flex-start;
+    padding: 0;
+    background: none;
+}
+.btn-lanjut:hover {
+    color: var(--primary-color);
+}
+
+.typing-cursor::after { 
+    content: '|'; 
+    display: inline-block; 
+    animation: blink 0.7s infinite; 
+    font-weight: bold; 
+    color: var(--text-color); 
+    margin-left: 3px; 
+}
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+
+.detail-page { padding: 40px 15%; }
+.breadcrumb { margin-bottom: 20px; font-size: 0.9rem; color: #555; }
+.breadcrumb a { text-decoration: none; color: var(--secondary-color); }
+.detail-page h1 { font-family: 'Lora', serif; font-size: 2.8rem; color: var(--primary-color); margin-bottom: 5px; background-color: var(--light-grey-bg); padding: 10px 20px; border-radius: 8px; display: inline-block; }
+.detail-page .subtitle { font-size: 1.2rem; color: #666; margin-top: 0; margin-bottom: 40px; }
+.detail-content { background-color: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.detail-content h3 { font-family: 'Lora', serif; color: var(--primary-color); background-color: var(--light-grey-bg); font-size: 1.8rem; padding: 8px 15px; border-radius: 5px; display: inline-block; }
+.detail-content ul { padding-left: 20px; list-style-type: '✔  '; }
+.detail-content li { margin-bottom: 10px; }
+
+footer { background-color: var(--footer-bg); color: var(--footer-text); padding: 50px 10% 20px; }
+.footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+.footer-about h4, .footer-nav h4, .footer-contact h4 { font-family: 'Lora', serif; font-size: 1.5rem; margin-bottom: 20px; color: #fff; }
+.footer-about p, .footer-contact p { font-size: 0.95rem; line-height: 1.8; margin: 0 0 10px 0; }
+.footer-nav ul { list-style: none; padding: 0; }
+.footer-nav li { margin-bottom: 10px; }
+.footer-nav a { text-decoration: none; color: var(--footer-text); transition: background-color 0.3s; padding: 8px 15px; border-radius: 5px; }
+.footer-nav a:hover { color: var(--primary-color); background-color: var(--light-grey-bg); }
+.footer-contact .contact-box { background-color: var(--light-grey-bg); padding: 20px; border-radius: 8px; }
+.footer-contact .contact-box p { color: var(--text-color); font-size: 0.9rem; margin-bottom: 10px; }
+.footer-contact .contact-box p strong { color: var(--primary-color); }
+.footer-bottom { text-align: center; border-top: 1px solid var(--secondary-color); padding-top: 20px; font-size: 0.9rem; }
+
+/* Media Query untuk Mobile */
 @media screen and (max-width: 768px) {
     .nav-links {
         position: fixed;
         right: 0px;
-        top: 75px; /* Sesuaikan dengan tinggi header */
+        top: 75px;
         background-color: var(--header-bg);
         display: flex;
         flex-direction: column;
@@ -106,14 +238,11 @@ nav .logo svg {
         opacity: 0;
     }
     .burger {
-        display: block; /* Tampilkan di layar kecil */
+        display: block;
     }
-    /* Kelas ini akan ditambahkan oleh JavaScript saat burger di-klik */
     .nav-active {
         transform: translateX(0%);
     }
-
-    /* Animasi untuk link navigasi saat muncul */
     @keyframes navLinkFade {
         from {
             opacity: 0;
@@ -124,8 +253,6 @@ nav .logo svg {
             transform: translateX(0px);
         }
     }
-
-    /* Animasi untuk tombol hamburger menjadi 'X' */
     .toggle .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
@@ -135,48 +262,4 @@ nav .logo svg {
     .toggle .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
-
-    /* Penyesuaian lain untuk mobile */
-    .hero-content h1 { font-size: 2.2rem; }
-    .hero-content p { font-size: 1.1rem; }
-    .content-section, .detail-page { padding: 40px 5%; }
-    .content-section h2, .detail-page h1 { font-size: 2rem; }
 }
-
-/* ... Sisa CSS Anda (tidak perlu diubah) ... */
-main { padding-top: 100px; }
-.hero { background: linear-gradient(to bottom, var(--background-start) 60%, var(--background-end) 100%); min-height: 80vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 40px 0; }
-.hero-content { padding: 40px; max-width: 80%; }
-.content-section h2 { font-family: 'Lora', serif; text-align: center; margin-bottom: 40px; position: relative; display: inline-block; }
-.preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.preview-card { background: var(--card-bg); border-radius: 15px; border: 1px solid #d6eaf8; padding: 30px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; text-align: left; box-shadow: 0 4px 25px rgba(41, 128, 185, 0.05); }
-.preview-card:hover { transform: scale(1.05); box-shadow: 0 0 25px 0 rgba(52, 152, 219, 0.4); }
-.card-icon { margin-bottom: 20px; background-color: var(--background-start); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
-.card-icon svg { width: 28px; height: 28px; color: var(--primary-color); }
-.preview-card h3 { font-family: 'Lora', serif; font-size: 1.6rem; color: var(--primary-color); margin-top: 0; margin-bottom: 15px; }
-.preview-card p { flex-grow: 1; min-height: 80px; font-size: 1rem; }
-.btn-lanjut { text-decoration: none; color: var(--secondary-color); font-weight: 600; margin-top: 20px; align-self: flex-start; padding: 0; background: none; }
-.btn-lanjut:hover { color: var(--primary-color); }
-.typing-cursor::after { content: '|'; display: inline-block; animation: blink 0.7s infinite; font-weight: bold; color: var(--text-color); margin-left: 3px; }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-.detail-page { padding: 40px 15%; }
-.breadcrumb { margin-bottom: 20px; font-size: 0.9rem; color: #555; }
-.breadcrumb a { text-decoration: none; color: var(--secondary-color); }
-.detail-page h1 { background-color: var(--light-grey-bg); padding: 10px 20px; border-radius: 8px; }
-.detail-page .subtitle { font-size: 1.2rem; color: #666; margin-top: 0; margin-bottom: 40px; }
-.detail-content { background-color: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-.detail-content h3 { font-family: 'Lora', serif; color: var(--primary-color); background-color: var(--light-grey-bg); font-size: 1.8rem; padding: 8px 15px; border-radius: 5px; display: inline-block; }
-.detail-content ul { padding-left: 20px; list-style-type: '✔  '; }
-.detail-content li { margin-bottom: 10px; }
-footer { background-color: var(--footer-bg); color: var(--footer-text); padding: 50px 10% 20px; }
-.footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
-.footer-about h4, .footer-nav h4, .footer-contact h4 { font-family: 'Lora', serif; font-size: 1.5rem; margin-bottom: 20px; color: #fff; }
-.footer-about p, .footer-contact p { font-size: 0.95rem; line-height: 1.8; margin: 0 0 10px 0; }
-.footer-nav ul { list-style: none; padding: 0; }
-.footer-nav li { margin-bottom: 10px; }
-.footer-nav a { text-decoration: none; color: var(--footer-text); transition: background-color 0.3s; padding: 8px 15px; border-radius: 5px; }
-.footer-nav a:hover { color: var(--primary-color); background-color: var(--light-grey-bg); }
-.footer-contact .contact-box { background-color: var(--light-grey-bg); padding: 20px; border-radius: 8px; }
-.footer-contact .contact-box p { color: var(--text-color); font-size: 0.9rem; margin-bottom: 10px; }
-.footer-contact .contact-box p strong { color: var(--primary-color); }
-.footer-bottom { text-align: center; border-top: 1px solid var(--secondary-color); padding-top: 20px; font-size: 0.9rem; }
